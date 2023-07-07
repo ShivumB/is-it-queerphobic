@@ -67,9 +67,13 @@ var output = document.getElementById("result");
 output.classList.toggle("scale-150");
 output.classList.toggle("translate-x-40");
 
+var locked = false;
 
 input.addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && !locked) {
+
+        locked = true;
+
         output.classList.toggle("scale-150");
         output.classList.toggle("translate-x-40");
         output.textContent = "thinking...";
@@ -80,6 +84,7 @@ input.addEventListener("keypress", function (event) {
             output.textContent = (result == 0) ? "classification: not queerphobic" : "classification: queerphobic";
             output.classList.toggle("scale-150");
             output.classList.toggle("translate-x-40");
+            locked = false;
         });
     }
 });
