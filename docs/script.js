@@ -50,7 +50,7 @@ var WolframCloudCall;
     };
 
     p.call = function (text, callback) {
-        var url = "http://www.wolframcloud.com/obj/shivumbanerjee24/evaluateQueerphobia";
+        var url = "https://www.wolframcloud.com/obj/shivumbanerjee24/evaluateQueerphobia";
         var args = { text: text };
         var callbackWrapper = function (result) {
             if (result === null) callback(null);
@@ -61,15 +61,25 @@ var WolframCloudCall;
 })();
 
 var wcc = new WolframCloudCall();
-wcc.call("yello", function (result) { console.log(result); });
 
 var input = document.getElementById("query");
 var output = document.getElementById("result");
+output.classList.toggle("scale-150");
+output.classList.toggle("translate-x-40");
+
 
 input.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
+        output.classList.toggle("scale-150");
+        output.classList.toggle("translate-x-40");
+        output.textContent = "thinking...";
+
         event.preventDefault();
 
-        output.textContent = (wcc.call(input.value, function (result) { console.log(result); }) == 0) ? "classification: not queerphobic" : "classification: queerphobic";
+        wcc.call(input.value, function (result) {
+            output.textContent = (result == 0) ? "classification: not queerphobic" : "classification: queerphobic";
+            output.classList.toggle("scale-150");
+            output.classList.toggle("translate-x-40");
+        });
     }
 });
