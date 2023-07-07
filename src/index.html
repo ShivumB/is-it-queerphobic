@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="output.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="flex-col font-inter justify-center items-center flex m-0 w-screen h-screen bg-gradient-to-r from-violet-500 to-fuchsia-500">
+        <div class="flex items-center px-6 w-1/2 h-20 bg-white rounded-full">
+            <input id="query" type="text" class="rounded-xl h-full w-full focus:outline-none text-5xl text-purple-500 font-bold" placeholder="enter text here">
+        </div>
+
+        <div id="result" class="flex items-center px-10 w-1/2 h-10 text-white">
+            classification: n/a
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
