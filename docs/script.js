@@ -88,3 +88,19 @@ input.addEventListener("keypress", function (event) {
         });
     }
 });
+
+//hide intro
+var seenIntro = JSON.parse(window.localStorage.getItem("seenIntro"));
+if(seenIntro == null) seenIntro = false;
+
+const intro = document.getElementById("intro");
+const main = document.getElementById("main");
+
+if(seenIntro) hideIntro();
+
+function hideIntro() {
+    intro.style.opacity = 0;
+    intro.style.pointerEvents = "none";
+    main.classList.remove("blur-xl");
+    window.localStorage.setItem("seenIntro", JSON.stringify(true));
+}
